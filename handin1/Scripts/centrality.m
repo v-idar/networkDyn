@@ -1,0 +1,58 @@
+%%
+clear all
+close all
+clc
+%%
+load("IOdownload.mat")
+
+% Three most central sectors 
+%% in-degree and out-degree sweden
+swe = io.swe2000;
+w_in = sum(swe, 1);
+[~, I_in] = sort(w_in, "descend");
+I_in(1:3);
+
+% print answers
+disp('The three most central sectors are in Sweden are (in-degree): ')
+for i = 1:3
+fprintf('\t Sector: %s\n', name{I_in(i)})
+end
+fprintf('\n')
+
+% out-degree
+
+w_out = sum(swe, 2);
+[~, I_out] = sort(w_out, "descend");
+
+% print answers
+disp('The three most central sectors in Sweden are (out-degree): ')
+for i = 1:3
+fprintf('\t Sector: %s\n', name{I_out(i)})
+end
+fprintf('\n')
+
+%% in-degree and out-degree Indonesia
+idn = io.idn2000;
+
+% in-degree
+w_in = sum(idn, 2);
+[~, I_in] = sort(w_in, "descend");
+I_in(1:3);
+
+% print answers
+disp('The three most central sectors are in Indonesia are (in-degree): ')
+for i = 1:3
+fprintf('\t Sector: %s\n', name{I_in(i)})
+end
+fprintf('\n')
+
+% out-degree
+w_out = sum(idn, 1);
+[~, I_out] = sort(w_out, "descend");
+
+% print answers
+disp('The three most central sectors in Indonesia are (out-degree): ')
+for i = 1:3
+fprintf('\t Sector: %s\n', name{I_out(i)})
+end
+fprintf('\n')
